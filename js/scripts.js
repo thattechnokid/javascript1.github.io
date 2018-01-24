@@ -47,7 +47,7 @@ let otherNum = 92;
 const truth = "I like trains";
 
 // truth = "meh"; //CANNOT redefine a variable
-console.log(truth);
+// console.log(truth);
 
 // const truth = "meh";
 // console.log(truth);   !!!!! Cannot RE-declare a Constants
@@ -59,7 +59,7 @@ console.log(truth);
 
 
 
-// -------------------  OBJECTS  -------------------------------
+// -------------------  OTHER  -------------------------------
 
 var rightNow = new Date();
 console.log(rightNow);
@@ -77,3 +77,37 @@ var newString = new String("lalalalalala");
 
 console.log(string);
 console.log(newString);
+
+
+ // -----  ARRAYS  --------
+
+ var myArray = ["Hello World", 22, true, {}, null];
+
+ console.log(myArray);
+
+ // ------  OBJECTS  -------
+
+ var myObject = {
+   myString: "Hello World",
+   magicNumber: 42
+ };
+
+
+ // let helloMessage = alert("Hey there! I like trains!");
+
+ // let confirmMessage = confirm("Is Your Name Bob?");
+ console.log(confirmMessage);
+
+ // let promptMessage = prompt("Tell me the password");
+ console.log(promptMessage)
+
+
+  // ---------  PRACTICE  ------
+
+  // var firstName = prompt("Enter Your First Name:");
+  // var lastName = prompt("Enter Your Last Name:");
+  console.log(firstName);
+  alert(lastName);
+
+  let birthday = prompt("Whats Your Birthday?", "1/1/1990");
+  confirm(new Date(birthday));
