@@ -52,8 +52,75 @@ number1+= 44; //can also use /= *= and -=
 
 // ------  Practice  -------
 
-var val1 = parseInt(prompt("Enter a first number", 10));
-var val2 = parseInt(prompt("Enter a second number", 10));
+// var val1 = parseInt(prompt("Enter a first number", 10));
+// var val2 = parseInt(prompt("Enter a second number", 10));
 
 //Or number1 = new Number(number1);
-console.log(val1+val2);
+// console.log(val1+val2);
+
+
+// ---------  Conditional Statements  -------------
+
+// ---- IF ----
+
+const bestMovie = 'The Greatest Show';
+//
+// if (typeof (bestMovie === 'string')) {
+//   alert('Yay!! Its a string');
+// } else if(typeof(bestMovie === 'number')){
+//     alert("WTF?");
+// } else{
+//   alert('BOOOOOOO! It Ain\'t a string');
+// }
+
+
+// ---- SWITCH ----
+
+// switch(typeof(bestMovie)){
+//   case 'string':
+//     alert('Dope it\'s a string');
+//     break;
+//   case 'number':
+//     alert('You entered a number lol');
+//     break;
+//   case 'object':
+//     alert("Why? Just why?");
+//     break;
+//   case 'boolean':
+//     alert("He speaks bool!");
+//     break;
+//   default:
+//     alert('Bruh, it\'s an array!');
+//     break;
+// }
+
+// ----  Ternary  ----
+
+   // IF                          True          else          False
+// bestMovie !== undefined ? alert('it exists!') : alert('it Doesn\'t exist');
+
+
+
+ // ----------  PRACTICE  -------------
+
+ var age = prompt("Give me your age");
+
+  if (age >= 18) {
+    // console.log('it worked');
+    userAge = confirm("Are you under 80 years old?");
+      if (userAge /* Checks if userAge comes back true use '!' for false */) {
+        var starWars = confirm("Do you like star wars?");
+        if (starWars) {
+          alert("you rock");
+        }
+      } else {
+        //Do you like prunes?
+        var prunes = confirm("Do you like prunes?");
+        if (prunes) {
+          alert('Adios!');
+        }
+      }
+  }
+  else {
+    alert("You must be 18 or older to continue!!");
+  }
