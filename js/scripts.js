@@ -194,4 +194,41 @@ for (var i = 0; i < movieTitles.length; i++) {
   }
 }
 
-//ENd
+// -----------------------  Take Home  -----------------------
+
+var myTodo = [];
+var numbaOne = [prompt("Tell me what youd like to accomplish: ")];
+var numbaTwo = [prompt('Tell me another thing')];
+var numbaThree = [prompt('Tell me one last thing you\'d like to do')];
+myTodo.push(numbaOne, numbaTwo, numbaThree);
+
+console.log(myTodo);
+
+for (var i = 0; i < myTodo.length; i++) {
+  numbaOne[1] = "Monday";
+  numbaTwo[1] = "Wednesday";
+  numbaThree[1] = "Friday";
+}
+
+var latest = 0;
+
+while (latest < myTodo.length) {
+  if (myTodo[latest][1] === "Friday") {
+    console.log(`Your todo for: ${myTodo[latest][0]}, is due on ${myTodo[latest][1]}.`);
+  }
+  latest++;
+}
+
+var done = 0;
+do {
+  myTodo[done][2] = '-- DONE --';
+  done++
+} while (done < (myTodo.length - 1));
+
+console.log(myTodo);
+
+for (var i = 0; i < myTodo.length; i++) {
+  if (myTodo[i][2] === "-- DONE --") {
+    alert(`${myTodo[i][0]} is Completed`);
+  }
+}
