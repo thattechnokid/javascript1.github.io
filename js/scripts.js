@@ -196,6 +196,7 @@ for (var i = 0; i < movieTitles.length; i++) {
 
 // -----------------------  Take Home  -----------------------
 
+//STEP 1
 var myTodo = [];
 var numbaOne = [prompt("Tell me what youd like to accomplish: ")];
 var numbaTwo = [prompt('Tell me another thing')];
@@ -204,31 +205,85 @@ myTodo.push(numbaOne, numbaTwo, numbaThree);
 
 console.log(myTodo);
 
+// NOTE: What I did
+
+// for (var i = 0; i < myTodo.length; i++) {
+//   numbaOne[1] = "Monday";
+//   numbaTwo[1] = "Wednesday";
+//   numbaThree[1] = "Friday";
+// }
+//
+// var latest = 0;
+//
+// while (latest < myTodo.length) {
+//   if (myTodo[latest][1] === "Friday") {
+//     console.log(`Your todo for: ${myTodo[latest][0]}, is due on ${myTodo[latest][1]}.`);
+//   }
+//   latest++;
+// }
+//
+// var done = 0;
+// do {
+//   myTodo[done][2] = '-- DONE --';
+//   done++
+// } while (done < (myTodo.length - 1));
+//
+// console.log(myTodo);
+//
+// for (var i = 0; i < myTodo.length; i++) {
+//   if (myTodo[i][2] === "-- DONE --") {
+//     alert(`${myTodo[i][0]} is Completed`);
+//   }
+// }
+
+
+
+// NOTE: ---------------- what ryeker did -------------------
+
+//STEP 2
+var todosWithDays = [];
 for (var i = 0; i < myTodo.length; i++) {
-  numbaOne[1] = "Monday";
-  numbaTwo[1] = "Wednesday";
-  numbaThree[1] = "Friday";
+  var due = prompt(`What day do you want to get ${myTodo[i]} done?`, 'Please Use this format: day/month/year');
+  due = new Date(due); //using proper JS syntax to give due the date entered by user
+  todosWithDays.push([myTodo[i], due]);
 }
+console.log(todosWithDays);
 
-var latest = 0;
+//STEP 3
+var sortedTodos = [];
+var now = new Date().getTime();//Converts  TODAYS DATE js date object to milliseconds.
 
-while (latest < myTodo.length) {
-  if (myTodo[latest][1] === "Friday") {
-    console.log(`Your todo for: ${myTodo[latest][0]}, is due on ${myTodo[latest][1]}.`);
-  }
-  latest++;
+// NOTE: We are using the MS to calculate the differences in times for the due dates and organize it in order of which one will be Completed soonest
+var j = 0;
+while (j < todosWithDays.length) {
+  //Convert both date objects to milliseconds
+  let oneDay = 24 * 60 * 60 * 1000; //Converts the milliseconds into days
+  var differentDays = Math.round((todosWithDays[j][1].getTime() - now)/oneDay);
+
+  sortedTodos.push([differentDays, todosWithDays[j]]);
+  j++;
 }
+//JS will automatically sort the array
+sortedTodos.sort();
 
-var done = 0;
+//Takes the array with the sorted todos and grabs the 2nd index (which is the actual todo item) of the LAST item in the array
+console.log(sortedTodos[sortedTodos.length - 1][1], ' will take the longest');
+
+
+//STEP 4
+let n = 0;
+
 do {
-  myTodo[done][2] = '-- DONE --';
-  done++
-} while (done < (myTodo.length - 1));
+  if (n != sortedTodos.length - 1) { //adding done to the items except the last one
+    sortedTodos[n][1].push("done");
+  }
+} while (n < sortedTodos.length);
 
-console.log(myTodo);
-
-for (var i = 0; i < myTodo.length; i++) {
-  if (myTodo[i][2] === "-- DONE --") {
-    alert(`${myTodo[i][0]} is Completed`);
+let alertArray = [];
+for (var i = 0; i < sortedTodos.length; i++) {
+  if (sortedTodos[i][1].indexOf('done') !== -1) {
+    alertArray.push(sortedTodos[i][1])
   }
 }
+
+alert(alertArray);
