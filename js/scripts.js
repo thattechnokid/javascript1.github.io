@@ -32,3 +32,28 @@ myMagicalPony(); //Runs but outputs "undefined is better than undefined" nothing
 console.log("---------------------------");
 
 myMagicalPony("My girlfriend", "yours"); //Now it will actually work and make sense.
+
+
+// --------------------------  Arrow Functions  -------------------------------
+
+
+
+
+
+
+
+
+//---------- Practice -----------
+
+function dogYears(yearsOld){
+  if (yearsOld.typeOf !== "Number") {
+    alert("You must enter a number like this: 4");
+  } else {
+    var dogsAge = yearsOld * 7;
+    alert(`Your dog is ${dogsAge} years old in "Dog Years"`);
+  }
+
+}
+dogYears(prompt("How Old Is Your Dog?"));
+
+// --------- Practice 2 --------
