@@ -53,13 +53,13 @@ changeBtn.onclick = function(){
 
 
 // =======-- Practice --=======
-var body = document.getElementsByTagName('body');
-var colorHdr = document.getElementsByTagName('h1')[1];
+var body = document.getElementsByTagName('body'),
+colorHdr = document.getElementsByTagName('h1')[1],
+alertButton = document.getElementById('alertBtn'),
+myDiv = document.getElementsByClassName('tryIt')[0],
+myInput = document.getElementById('myInput'),
+colors = ['blue', 'green', 'black', 'darkgray'];
 
-var alertButton = document.getElementById('alertBtn');
-
-var myDiv = document.getElementsByClassName('tryIt')[0];
-var myInput = document.getElementById('myInput');
 document.onkeypress = function() {
   colorHdr.style.color = "green";
   document.onkeyup = function(){
@@ -88,3 +88,41 @@ myInput.addEventListener('keydown',function(e){
     console.log("You hit enter!!");
   }
 });
+
+// =====================================================
+var h1Temp = document.getElementById('temp');
+
+
+
+var temp = parseInt(prompt('Enter a Temperature','In numerical format: 102'));
+
+var format = prompt('Enter the Degree type','F or C');
+format = format.toUpperCase();
+
+if (format === 'F') {
+  h1Temp.innerHTML = `${temp} &deg;F`;
+}else if (format === 'C') {
+  h1Temp.innerHTML = `${temp} &deg;C`;
+}
+
+h1Temp.addEventListener('click', convert(temp, format));
+
+
+function convert(temp, format) {
+  if (format === 'C') {
+    //Convert to F
+    temp *= ((9/5)+32);
+    h1Temp.innerHTML = `${temp} &deg;F`;
+  }
+}
+// function getValues(){
+//   h1Temp.addEventListener('click', convert(temp, format));
+//
+//   var temp = parseInt(prompt('Enter a Temperature','In numerical format: 102'));
+//
+//   if (isNaN(temp)) {
+//     alert('Enter a valid number like so: 3');
+//     getValues();
+//   }
+//
+//   }
