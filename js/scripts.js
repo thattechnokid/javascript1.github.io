@@ -38,12 +38,16 @@ function login(e){
   console.log(newUser);
 }
 
+function calcMileage(miles, gallons){
+  return miles / gallons;
+}
 
-function Vehicle(wheels, type, engine, color){
+function Vehicle(wheels, type, engine, color, miles, gallons){
   this.wheels = wheels;
   this.type = type;
   this.engine = engine; //Can be an object as seen below
   this.color = color;
+  this.calculateGasMileage = calcMileage(miles, gallons);
 }
 
 function Engine(numOfCylinders, horsees){
@@ -53,6 +57,6 @@ function Engine(numOfCylinders, horsees){
 
 var myEngine = new Engine(2, 120);
 
-var saturn = new Vehicle(4, 'car', myEngine, 'Green');
+var saturn = new Vehicle(4, 'car', myEngine, 'Green', 256, 55);
 
 console.log(saturn);
